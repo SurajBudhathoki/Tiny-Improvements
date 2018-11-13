@@ -4,9 +4,17 @@ const Schema = mongoose.Schema;
 
 var KudosSchema = new Schema({
   title: String,
-  body: String
+  body: String,
+  from: String,
+  to: String
+  // User: [
+  //     {
+  //       type: Schema.Types.ObjectId,
+  //       ref: "User"
+  //     }
+  // ]
 });
 
-const Kudos = mongoose.model("kudos", KudosSchema);
+const kudos = mongoose.model("kudos", KudosSchema);
 
-module.exports = Kudos;
+module.exports = kudos;

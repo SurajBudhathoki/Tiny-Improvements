@@ -8,7 +8,7 @@ var UserSchema = new Schema({
     trim: true,
     required: "Username is Required"
   },
-  kudos_cards: [
+  kudos: [
     {
       type: Schema.Types.ObjectId,
       ref: "kudos"

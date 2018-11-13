@@ -4,8 +4,9 @@ module.exports = function (app) {
 
 //getting the users
 app.get('/api/users', function( req,  res) {
-    db.User.find({}).
-    then(function(data) {
+    db.User.find({})
+    .populate('kudos')
+    .then(function(data) {
         res.json(data);
     })
     .catch(function(err) {
@@ -27,8 +28,9 @@ app.get('/api/users', function( req,  res) {
 
 //getting the kudos cards
 app.get('/api/kudos', function(req,res) {
-    db.Kudos.find({}).
-    then(function(data) {
+    db.kudos.find({})
+    .populate('User')
+    .then(function(data) {
         res.json(data);
     })
     .catch(function(err) {
@@ -39,8 +41,18 @@ app.get('/api/kudos', function(req,res) {
 
 //posting the kudos cards 
 app.post('/api/kudos', function(req,res) {
-    db.Kudos.create(req.body).then(function(data) {
-        res.json({success : true});
+  
+    const newEntry = {
+      title: req.body.title,  
+      body: req.body.body,
+      from: req.body.from,
+      to: req.body.to
+    }
+
+    db.kudos.create(newEntry)
+
+    .then(function(userData) {
+        res.json(userData);
     }).catch(function(err) {
         res.json(err);
     });
