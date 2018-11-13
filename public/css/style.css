@@ -1,0 +1,27 @@
+body {
+    background-image: url(../images/background.jpg);
+    background-repeat: no-repeat; 
+    background-size: cover;
+
+}
+
+.jumbotron {
+    margin-top: 20px;
+    background-color: #f6d32d;
+    border: 5px ridge gray;
+    
+}
+
+.circle {
+    display:block;
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+    background-color: blue;
+    border: 2px solid gray;
+    font-size: 25px;
+}
+
+.circle:hover {
+    background-color: darkblue;
+}
