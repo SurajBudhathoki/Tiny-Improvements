@@ -5,7 +5,6 @@ module.exports = function (app) {
 //getting the users
 app.get('/api/users', function( req,  res) {
     db.User.find({})
-    .populate('kudos')
     .then(function(data) {
         res.json(data);
     })
@@ -29,7 +28,8 @@ app.get('/api/users', function( req,  res) {
 //getting the kudos cards
 app.get('/api/kudos', function(req,res) {
     db.kudos.find({})
-    .populate('User')
+    .populate('from')
+    .populate('to')
     .then(function(data) {
         res.json(data);
     })
@@ -41,16 +41,9 @@ app.get('/api/kudos', function(req,res) {
 
 //posting the kudos cards 
 app.post('/api/kudos', function(req,res) {
-  
-    const newEntry = {
-      title: req.body.title,  
-      body: req.body.body,
-      from: req.body.from,
-      to: req.body.to
-    }
 
-    db.kudos.create(newEntry)
 
+    db.kudos.create(req.body)
     .then(function(userData) {
         res.json(userData);
     }).catch(function(err) {
