@@ -25,3 +25,21 @@ body {
 .circle:hover {
     background-color: darkblue;
 }
+
+.kudosCard {
+    background-image: url(../images/notecard.PNG);
+    border-left: 10px solid blue;
+   
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+#from  {
+    margin-right: 550px;
+    
+}
+
+#to {
+    margin-left: 550px;
+    
+}

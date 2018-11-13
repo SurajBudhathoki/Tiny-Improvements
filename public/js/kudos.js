@@ -18,13 +18,13 @@ const render = function (dataList) {
     for (let i = 0; i < dataList.length; i++) {
 
         $('#kudosContent').append(
-            `<div class='card'>
-            <h5>${dataList[i].title}</h5>
-            <h6>From: ${dataList[i].from[0].name}</h6> 
-          <div class='card-body'>
-            <h6>To: ${dataList[i].to[0].name}</h6>
-            <p>${dataList[i].body}</p>
-          </div>
+            `<div class='card kudosCard'>
+         
+          <h5 id = "from" >From: ${dataList[i].from[0].name}</h5> 
+          <h5 id = "to">To: ${dataList[i].to[0].name}</h5>
+         
+          <h3>${dataList[i].title}</h3>
+          <p>${dataList[i].body}</p>
         </div>`
         );
     }
@@ -68,7 +68,7 @@ const sendKudos = function (event) {
         $('#kudosBody').val('');
         $('#fromUser').val('');
         $('#toUser').val('');
-
+        $('#kudosModal').modal('hide');
 
         getKudos();
     })
