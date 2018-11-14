@@ -3,18 +3,18 @@
 //getting all kudos
 const getKudos = function () {
     $.get(`/api/kudos`).then(function (data) {
-        render(data);
+        renderKudos(data);
 
     });
 }
 
 
 //displaying all the kudos 
-const render = function (dataList) {
+const renderKudos = function (dataList) {
 
     $('#kudosContent').empty();
 
-    console.log(dataList);
+   
     for (let i = 0; i < dataList.length; i++) {
 
         $('#kudosContent').append(
@@ -22,7 +22,6 @@ const render = function (dataList) {
          
           <h5 id = "from" >From: ${dataList[i].from[0].name}</h5> 
           <h5 id = "to">To: ${dataList[i].to[0].name}</h5>
-         
           <h3>${dataList[i].title}</h3>
           <p>${dataList[i].body}</p>
         </div>`
@@ -33,10 +32,9 @@ const render = function (dataList) {
 
 
 //getting all users 
-
 const renderUsers = function () {
     $.get(`/api/users`).then(function (data) {
-        console.log(data);
+       
 
         for (let i = 0; i < data.length; i++) {
 
@@ -50,11 +48,14 @@ const renderUsers = function () {
 
 
 //posting the kudos messages
-
 const sendKudos = function (event) {
     event.preventDefault();
 
 
+    if($('#fromUser').val() && $('#toUser').val()) {
+        $('.userRow').empty();
+
+    
     const newKudos = {
         title: $('#kudosTitle').val(),
         body: $('#kudosBody').val(),
@@ -62,18 +63,35 @@ const sendKudos = function (event) {
         to: $('#toUser').val()
     }
 
-    $.post('/api/kudos', newKudos).then(function (data) {
+    if ($('#kudosTitle').val() && $('#kudosBody').val()) {
 
-        $('#kudosTitle').val('');
-        $('#kudosBody').val('');
-        $('#fromUser').val('');
-        $('#toUser').val('');
-        $('#kudosModal').modal('hide');
+        $.post('/api/kudos', newKudos).then(function (data) {
 
-        getKudos();
-    })
+            $('#kudosTitle').val('');
+            $('#kudosBody').val('');
+            $('#fromUser').val('');
+            $('#toUser').val('');
+            $('#kudosModal').modal('hide');
+            $('.err').empty();
+           
+
+            getKudos();
+        });
+
+    } else {
+       $('.err').text('please enter title and message!').css({ "color": "red", "font-size": "100%" });
+    }
+
+} else {
+    $('.userRow').text('Please choose to and from').css({ "color": "red", "font-size": "100%" });
+}
+
+
+
 
 }
+
+
 
 //empyting out modal on click close
 $('.closeModal').on('click', function () {
@@ -81,6 +99,8 @@ $('.closeModal').on('click', function () {
     $('#kudosBody').val('');
     $('#fromUser').val('');
     $('#toUser').val('');
+    $('.err').empty();
+    $('.userRow').empty();
 });
 
 

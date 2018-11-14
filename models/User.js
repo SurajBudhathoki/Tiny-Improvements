@@ -8,7 +8,6 @@ var UserSchema = new Schema({
     type: String,
     trim: true,
   },
-   
 
 });
 

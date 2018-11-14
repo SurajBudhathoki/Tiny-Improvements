@@ -43,3 +43,20 @@ body {
     margin-left: 550px;
     
 }
+
+.modal-header {
+    background-color: blue;
+    color: aliceblue;
+}
+
+.closeModal {
+    color: white;
+}
+
+.modal-footer {
+   text-align: center;
+}
+
+#sendKudos {
+    background-color: blue;
+}

@@ -15,6 +15,6 @@ mongoose.connect('mongodb://localhost/kudos_db', { useNewUrlParser: true });
 require('./routes/api-routes')(app);
 
 
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`App running on port ${PORT}`);
 });
