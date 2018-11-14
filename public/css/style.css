@@ -60,3 +60,79 @@ body {
 #sendKudos {
     background-color: blue;
 }
+
+
+/* media queries */
+
+@media only screen and (max-width: 1024px)  {
+
+    .kudosCard {
+        width: 100%;
+       
+    }
+
+    #from {
+       margin-right: 400px;
+   }
+   
+   #to {
+       margin-left: 400px;
+   }
+
+}    
+
+
+@media only screen and (max-width: 788px) {
+
+    
+     
+     .kudosCard {
+         width: 100%;
+        
+     }
+
+     #from {
+        margin-right: 270px;
+    }
+    
+    #to {
+        margin-left: 270px;
+    }
+
+}
+
+
+@media only screen and (max-width: 640px) {
+
+ .container {
+    width: 100%;
+ }   
+
+#logo {
+    width: 100%;
+}
+
+.circle {
+    margin-left: 60px;
+    margin-bottom: 20px;
+}
+
+#kudosModal {
+   width: 100%;
+}
+
+.kudosCard {
+    width: 100%;
+   
+}
+
+#from {
+    margin-right: 0;
+}
+
+#to {
+    margin-left: 0;
+}
+
+
+}

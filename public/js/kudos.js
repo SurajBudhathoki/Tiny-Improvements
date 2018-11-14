@@ -79,11 +79,11 @@ const sendKudos = function (event) {
         });
 
     } else {
-       $('.err').text('please enter title and message!').css({ "color": "red", "font-size": "100%" });
+       $('.err').text('Please enter title and message!').css({ "color": "red", "font-size": "100%" , "font-weight": "bold"});
     }
 
 } else {
-    $('.userRow').text('Please choose to and from').css({ "color": "red", "font-size": "100%" });
+    $('.userRow').text('Please choose to and from').css({ "color": "red", "font-size": "100%", "font-weight": "bold" });
 }
 
 
