@@ -3,13 +3,14 @@ const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
+const MONGODB_URI = require('./config/keys.js')
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
 
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/kudos_db', 
+mongoose.connect(MONGODB_URI || 'mongodb://localhost/kudos_db', 
 { useNewUrlParser: true });
 
 
