@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
-const MONGODB_URI = require('./config/keys.js')
+const MONGODB_URI = require('./config/keys');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
