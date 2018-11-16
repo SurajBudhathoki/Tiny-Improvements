@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 5000;
 const app = express();
-const MONGODB_URI =  "mongodb://localhost/kudos_db" || process.env.MONGODB_URI;
+const MONGODB_URI =  process.env.MONGODB_URI || "mongodb://localhost/kudos_db";
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
