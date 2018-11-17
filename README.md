@@ -2,9 +2,6 @@
 
 Tiny Improvements is an application that allows users to send compliments or "Kudos" to other users that are then displayed on the page for all to see. 
 
-## Deployment 
-
-https://arcane-hollows-39923.herokuapp.com/
 
 ## Funtionality
 
