@@ -27,7 +27,7 @@ body {
 }
 
 .kudosCard {
-    /* background-image: url(../images/notecard.PNG); */
+    background-image: url(../images/notecard.PNG);
     border-left: 10px solid blue;
    
     border-radius: 8px;
